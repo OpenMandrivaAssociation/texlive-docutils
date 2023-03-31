@@ -1,6 +1,6 @@
 Name:		texlive-docutils
 Version:	56594
-Release:	1
+Release:	2
 Summary:	Helper commands and element definitions for Docutils LaTeX output
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/docutils
