@@ -3,7 +3,7 @@ Version:	56594
 Release:	2
 Summary:	Helper commands and element definitions for Docutils LaTeX output
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/docutils
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/docutils
 License:	bsd
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/docutils.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/docutils.doc.r%{version}.tar.xz
