@@ -1,39 +1,24 @@
-Name:		texlive-docutils
-Version:	56594
-Release:	2
+%global tl_name docutils
+%global tl_revision 56594
+
+Name:		texlive-%{tl_name}
+Version:	%{tl_revision}
+Release:	1
 Summary:	Helper commands and element definitions for Docutils LaTeX output
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/docutils
 License:	bsd
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/docutils.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/docutils.doc.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/docutils.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/docutils.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-The package is intended for use with LaTeX documents generated
-from reStructuredText sources with Docutils. When generating
-LaTeX documents, specify this package with the stylesheet
-configuration option, e.g. rst2latex --stylesheet=docutils
-exampledocument.txt
+The package is intended for use with LaTeX documents generated from
+reStructuredText sources with Docutils. When generating LaTeX documents,
+specify this package with the stylesheet configuration option, e.g.
+rst2latex --stylesheet=docutils exampledocument.txt
 
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%{_texmfdistdir}/tex/latex/docutils
-%doc %{_texmfdistdir}/doc/latex/docutils
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
